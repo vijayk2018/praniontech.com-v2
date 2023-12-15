@@ -24,53 +24,121 @@ publishedBlogEntries.sort(function (a, b) {
         We write about building startups and thoughts going on our mind.
       </Fragment>
     </Sectionhead>
-    <main class="mt-16">
-      <ul class="grid gap-16 max-w-4xl mx-auto">
-        {
-          publishedBlogEntries.map((blogPostEntry, index) => (
-            <li>
-              <a href={`/blog/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                  <Picture
-                    src={blogPostEntry.data.image.src}
-                    alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    widths={[200, 400, 800]}
-                    aspectRatio="16:9"
-                    background="#ffffff"
-                    fit="cover"
-                    position="center"
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md"
-                  />
-                  <div>
-                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-                      {blogPostEntry.data.category}
-                    </span>
+    <!-- <li>
+      <a href={`/blog/${blogPostEntry.slug}`}>
+        <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+          <Picture
+            src={blogPostEntry.data.image.src}
+            alt={blogPostEntry.data.image.alt}
+            sizes="(max-width: 800px) 100vw, 800px"
+            widths={[200, 400, 800]}
+            aspectRatio="16:9"
+            background="#ffffff"
+            fit="cover"
+            position="center"
+            loading={index <= 2 ? "eager" : "lazy"}
+            decoding={index <= 2 ? "sync" : "async"}
+            class="w-full rounded-md"
+          />
+          <div>
+            <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+              {blogPostEntry.data.category}
+            </span>
 
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {blogPostEntry.data.title}
-                    </h2>
+            <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+              {blogPostEntry.data.title}
+            </h2>
 
-                    <div class="flex gap-2 mt-3">
-                      <span class="text-gray-400">
-                        {blogPostEntry.data.author}
-                      </span>
-                      <span class="text-gray-400">• </span>
-                      <time
-                        class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
-                      </time>
+            <div class="flex gap-2 mt-3">
+              <span class="text-gray-400">
+                {blogPostEntry.data.author}
+              </span>
+              <span class="text-gray-400">• </span>
+              <time
+                class="text-gray-400"
+                datetime={blogPostEntry.data.publishDate.toISOString()}>
+                {blogPostEntry.data.publishDate.toDateString()}
+              </time>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li> -->
+
+    <!-- <main class="mt-16"> -->
+    <!-- <ul class="grid gap-16 max-w-4xl mx-auto"> -->
+    <div class="mt-0 bg-[#F2F2F2] mx-auto">
+      <div class="mt-[4rem] bg-[#F2F2F2] max-w-7xl mx-auto">
+        <div class="mx-[3rem] md:mx-[2rem] py-4 lg:px-14">
+          <div
+            class="mb-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 space-x-2 -mx-1 lg:-mx-4">
+            {
+              publishedBlogEntries.map((blogPostEntry, index) => (
+                <>
+                  <div class="relative">
+                    <div class="overflow-hidden bg-white rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)] relative">
+                      <Picture
+                        src={blogPostEntry.data.image.src}
+                        alt={blogPostEntry.data.image.alt}
+                        sizes="(max-width: 800px) 100vw, 800px"
+                        widths={[200, 400, 800]}
+                        aspectRatio="16:9"
+                        background="#ffffff"
+                        fit="cover"
+                        position="center"
+                        loading={index <= 2 ? "eager" : "lazy"}
+                        decoding={index <= 2 ? "sync" : "async"}
+                        class="w-full rounded-md"
+                      />
+                      <div class="absolute top-0 left-0 p-2">
+                        <button class="text-[10px] bg-white border border-[#7BBB49] rounded-full text-[#7BBB49] px-5 py-[0.2rem]">
+                          Tech
+                        </button>
+                        <button class="text-[10px] bg-white border border-[#7BBB49] rounded-full text-[#7BBB49] px-5 py-[0.2rem]">
+                          Product
+                        </button>
+                      </div>
+                      <div class="space-y-3 px-4 leading-tight p-2 md:p-4">
+                        <div class="flex gap-2 mt-3">
+                          <time
+                            class="text-[#646464] items-center gap-2 flex text-[10px]"
+                            datetime={blogPostEntry.data.publishDate.toISOString()}>
+                            {blogPostEntry.data.publishDate.toDateString()}
+                          </time>
+                        </div>
+
+                        <p class="text-[13px] text-[#000000] text-[16px] font-semibold">
+                          {blogPostEntry.data.title}
+                        </p>
+                        <p class="text-[#707070] text-[13px] leading-[22px] Inter">
+                          {blogPostEntry.data.snippet}
+                        </p>
+                      </div>
+                      <footer class="flex items-center justify-between leading-none px-4 mb-4">
+                        <div class="flex items-center space-x-2">
+                          <a
+                            href={`/blog/${blogPostEntry.slug}`}
+                            class="text-[13px] items-center text-[#646464] font-bold flex gap-2 space-x-2">
+                            Read more
+                            <span>
+                              <img
+                                class="w-4 h-4"
+                                src="Images/arrow (21)@2x.png"
+                              />
+                            </span>
+                          </a>
+                        </div>
+                      </footer>
                     </div>
                   </div>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </main>
+                </>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </ul> -->
+    <!-- </main> -->
   </Container>
 </Layout>
