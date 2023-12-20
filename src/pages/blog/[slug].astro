@@ -20,11 +20,11 @@ const { Content } = await entry.render();
 <Layout title={entry.data.title}>
   <Container>
     <div class="mx-auto max-w-6xl mt-14">
-      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+      <!-- <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
         {entry.data.category}
-      </span>
+      </span> -->
       <h1
-        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
+        class="text-5xl lg:text-4xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
         {entry.data.title}
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
@@ -46,18 +46,21 @@ const { Content } = await entry.render();
           }
         </div>
       </div>
-    </div>
+      <br />
 
-    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
-      <Content />
+      <div class="prose prose-lg mt-6">
+        <Content />
+      </div>
     </div>
-    
     <div class="text-center mt-8">
       <a
         href="/blog"
-        class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-        >← Back to Blog</a
-      >
+        class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition">
+        ← Back to Blog
+      </a>
+      <br />
+      <br />
+      <br />
     </div>
   </Container>
 </Layout>

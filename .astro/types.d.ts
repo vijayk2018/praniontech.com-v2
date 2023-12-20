@@ -219,13 +219,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"kitchensink.mdx": {
-	id: "kitchensink.mdx";
+"kitchensink.md": {
+	id: "kitchensink.md";
   slug: "kitchensink";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
+} & { render(): Render[".md"] };
 };
 "team": {
 "janette-lynch.md": {
